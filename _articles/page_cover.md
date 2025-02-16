@@ -1,5 +1,6 @@
 ---
-title: Page with cover image
+title: "Page Cover"
+order: 30
 author: Tao He
 date: 2022-05-24
 category: Jekyll

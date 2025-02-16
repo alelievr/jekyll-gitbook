@@ -1,7 +1,8 @@
 ---
-title: Using Footnotes
+title: "Footnotes"
+order: 80
 author: Tao He
-date: 2023-12-12
+date: 2022-06-25
 category: Jekyll
 layout: post
 mermaid: true

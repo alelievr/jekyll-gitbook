@@ -1,5 +1,6 @@
 ---
-title: How to Generate TOC
+title: "Table of Contents"
+order: 10
 author: Tao He
 date: 2021-08-10
 category: Jekyll

@@ -1,5 +1,6 @@
 ---
-title: How to Get Started
+title: "How To"
+order: 50
 author: Tao He
 date: 2019-04-28
 category: Jekyll

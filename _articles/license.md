@@ -1,5 +1,6 @@
 ---
-title: License
+title: "License"
+order: 40
 author: Tao He
 date: 2019-04-29
 category: Jekyll

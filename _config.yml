@@ -50,17 +50,13 @@ exclude:
   - _drafts
 
 collections:
-  pages:
+  articles:
     output: true
     permalink: /:collection/:path/
-  others:
-    output: true
-    permalink: /:collection/:path/
+    sort_by: order
 
 ordered_collections:
-  - posts
-  - pages
-  - others
+  - articles
 
 page_width: 800px
 
@@ -72,3 +68,10 @@ plugins:
   - jekyll-feed
   - jekyll-readme-index
   - jemoji
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: post

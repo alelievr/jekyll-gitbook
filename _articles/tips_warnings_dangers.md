@@ -1,7 +1,8 @@
 ---
-title: Tips, Warnings, and Dangers
+title: "Tips, Warnings, and Dangers"
+order: 35  # Placing it after page_cover.md
 author: Tao He
-date: 2022-06-30
+date: 2022-05-24
 category: Jekyll
 layout: post
 ---
