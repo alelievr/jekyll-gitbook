@@ -60,6 +60,7 @@
                         {% endif %}
 
                         {% for post in reversed_posts %}
+                            {% unless post.hidden %}
                             {% if page.url == post.url %}
                             <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                             {% else %}
@@ -74,6 +75,7 @@
                                     {% endif %}
                                 {% endif %}
                             </li>
+                            {% endunless %}
                         {% endfor %}
 
                         {% if reversed_posts.size > 0 %}
@@ -92,6 +94,7 @@
                         {% endif %}
 
                         {% for post in reversed_posts %}
+                            {% unless post.hidden %}
                             {% if page.url == post.url %}
                             <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                             {% else %}
@@ -106,6 +109,7 @@
                                     {% endif %}
                                 {% endif %}
                             </li>
+                            {% endunless %}
                         {% endfor %}
 
                         {% if reversed_posts.size > 0 %}
