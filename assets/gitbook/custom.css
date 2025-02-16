@@ -261,3 +261,64 @@ pre:has(code.language-mermaid[data-processed="true"]) {
     --c-danger-title: #c00;
     --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
+
+/* Dark theme colors */
+.book.color-theme-2 {
+    --c-tip: #42b983;
+    --c-tip-bg: #2b3339;
+    --c-tip-text: #98b6a8;
+    --c-tip-title: #42b983;
+    
+    --c-warning: #d4ad3d;
+    --c-warning-bg: rgb(92, 83, 24);
+    --c-warning-text: #d4bc6d;
+    --c-warning-title: #d4ad3d;
+    
+    --c-danger: #d45d5d;
+    --c-danger-bg: #4e1616;
+    --c-danger-text: #d47777;
+    --c-danger-title: #d45d5d;
+}
+
+/* Sepia theme colors */
+.book.color-theme-1 {
+    --c-tip: #3b8c6e;
+    --c-tip-bg: #f3eacb;
+    --c-tip-text: #2c5850;
+    --c-tip-title: #3b8c6e;
+    
+    --c-warning: #b08400;
+    --c-warning-bg: #f3eacb;
+    --c-warning-text: #6b5900;
+    --c-warning-title: #b08400;
+    
+    --c-danger: #af0000;
+    --c-danger-bg: #f3eacb;
+    --c-danger-text: #600;
+    --c-danger-title: #af0000;
+}
+
+/* Remove background from inline code */
+code {
+    background: none !important;
+    color: inherit !important;
+  }
+  
+  /* Remove background from code blocks */
+  .markdown-section pre {
+    background: #2d2d2d;
+  }
+  
+  .markdown-section pre > code {
+    background: none;
+    color: #ccc;
+  }
+  
+  /* Remove the selection-like highlighting */
+  .markdown-section code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    border-radius: 3px;
+  }
+  

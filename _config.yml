@@ -75,7 +75,3 @@ defaults:
       type: articles
     values:
       layout: post
-
-# Add custom CSS
-extra_css:
-  - assets/custom.css
