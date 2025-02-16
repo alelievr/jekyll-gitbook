@@ -335,3 +335,25 @@ code {
     vertical-align: middle;
 }
   
+/* Category styling in TOC */
+.category-title {
+    display: block;
+    padding: 10px 15px;
+    font-weight: 600;
+    color: var(--theme-color);
+    font-size: 14px;
+}
+
+.articles {
+    margin: 0;
+    padding: 0;
+}
+
+.articles .chapter {
+    padding-left: 20px;
+}
+
+.articles .chapter a {
+    font-size: 13px;
+}
+  

@@ -75,3 +75,12 @@ defaults:
       type: articles
     values:
       layout: post
+
+# Categories configuration
+categories_order:
+  - name: "Introduction"
+    id: introduction
+  - name: "Jekyll"
+    id: jekyll
+  - name: "Advanced"
+    id: advanced

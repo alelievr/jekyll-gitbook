@@ -59,28 +59,40 @@
                             {% assign reversed_posts = site[collection.label] %}
                         {% endif %}
 
-                        {% for post in reversed_posts %}
-                            {% unless post.hidden %}
-                            {% if page.url == post.url %}
-                            <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
-                            {% else %}
-                            <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
-                            {% endif %}
-                                <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
-                                    {{ post.title | escape }}
-                                </a>
-                                {% if site.toc.enabled %}
-                                    {% if page.url == post.url %}
-                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
-                                    {% endif %}
+                        {% assign categories = reversed_posts | map: "category" | uniq | sort %}
+                        {% assign cat_index = 0 %}
+                        {% for category in categories %}
+                            {% assign cat_index = cat_index | plus: 1 %}
+                            {% assign category_posts = reversed_posts | where: "category", category %}
+                            {% if category_posts.size > 0 %}
+                                <li class="chapter">
+                                    <span class="category-title">{{cat_index}} - {{category | capitalize}}</span>
+                                    <ul class="articles">
+                                        {% assign article_index = 0 %}
+                                        {% for post in category_posts %}
+                                            {% unless post.hidden %}
+                                                {% assign article_index = article_index | plus: 1 %}
+                                                {% if page.url == post.url %}
+                                                    <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
+                                                {% else %}
+                                                    <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                                {% endif %}
+                                                    <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
+                                                        {{cat_index}}.{{article_index}} - {{ post.title | escape }}
+                                                    </a>
+                                                    {% if site.toc.enabled and page.url == post.url %}
+                                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                                                    {% endif %}
+                                                </li>
+                                            {% endunless %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% if forloop.last != true %}
+                                    <li class="divider"></li>
                                 {% endif %}
-                            </li>
-                            {% endunless %}
+                            {% endif %}
                         {% endfor %}
-
-                        {% if reversed_posts.size > 0 %}
-                            <li class="divider"></li>
-                        {% endif %}
                     {% endif %}
                 {% endfor %}
             {% else %}
@@ -93,28 +105,40 @@
                             {% assign reversed_posts = site[collection.label] %}
                         {% endif %}
 
-                        {% for post in reversed_posts %}
-                            {% unless post.hidden %}
-                            {% if page.url == post.url %}
-                            <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
-                            {% else %}
-                            <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
-                            {% endif %}
-                                <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
-                                    {{ post.title | escape }}
-                                </a>
-                                {% if site.toc.enabled %}
-                                    {% if page.url == post.url %}
-                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
-                                    {% endif %}
+                        {% assign categories = reversed_posts | map: "category" | uniq | sort %}
+                        {% assign cat_index = 0 %}
+                        {% for category in categories %}
+                            {% assign cat_index = cat_index | plus: 1 %}
+                            {% assign category_posts = reversed_posts | where: "category", category %}
+                            {% if category_posts.size > 0 %}
+                                <li class="chapter">
+                                    <span class="category-title">{{cat_index}} - {{category | capitalize}}</span>
+                                    <ul class="articles">
+                                        {% assign article_index = 0 %}
+                                        {% for post in category_posts %}
+                                            {% unless post.hidden %}
+                                                {% assign article_index = article_index | plus: 1 %}
+                                                {% if page.url == post.url %}
+                                                    <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
+                                                {% else %}
+                                                    <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                                {% endif %}
+                                                    <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
+                                                        {{cat_index}}.{{article_index}} - {{ post.title | escape }}
+                                                    </a>
+                                                    {% if site.toc.enabled and page.url == post.url %}
+                                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
+                                                    {% endif %}
+                                                </li>
+                                            {% endunless %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% if forloop.last != true %}
+                                    <li class="divider"></li>
                                 {% endif %}
-                            </li>
-                            {% endunless %}
+                            {% endif %}
                         {% endfor %}
-
-                        {% if reversed_posts.size > 0 %}
-                            <li class="divider"></li>
-                        {% endif %}
                     {% endif %}
                 {% endfor %}
             {% endif %}
