@@ -39,3 +39,39 @@
   #book-search-results span.search-highlight-keyword {
     background: #ff0;
   }
+
+/* Search results styling for dark theme */
+.book.color-theme-2 .search-results-list {
+    color: #bdcadb !important;
+}
+
+.book.color-theme-2 .search-results-list a {
+    color: #bdcadb !important;
+}
+
+.book.color-theme-2 .search-results-list .search-results-item {
+    color: #bdcadb !important;
+}
+
+.book.color-theme-2 .search-results-list .search-results-item p {
+    color: #bdcadb !important;
+}
+
+.book.color-theme-2 .search-results-list mark {
+    color: #ffffff !important;
+    background: rgba(255, 220, 0, 0.3) !important;
+    text-decoration: none !important;
+}
+
+/* Search input styling */
+.book.color-theme-2 .book-search-input {
+    background-color: #2d3143 !important;
+}
+
+.book.color-theme-2 .book-search-input input {
+    color: #bdcadb !important;
+}
+
+.book.color-theme-2 .book-search-input input::placeholder {
+    color: #737c8c !important;
+}
