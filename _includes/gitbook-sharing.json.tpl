@@ -24,5 +24,7 @@
 
                 "weibo": false,
 
-                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram"]
+                "bluesky": true,
+
+                "all": ["facebook", "google", "twitter", "weibo", "instapaper", "github", "telegram", "bluesky"]
             },

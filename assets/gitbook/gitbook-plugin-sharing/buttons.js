@@ -63,6 +63,14 @@ require(['gitbook', 'jquery'], function(gitbook, $) {
                 e.preventDefault();
                 window.open('http://vkontakte.ru/share.php?url='+encodeURIComponent(location.href));
             }
+        },
+        'bluesky': {
+            'label': 'Bluesky',
+            'icon': 'custom-bluesky',
+            'onClick': function(e) {
+                e.preventDefault();
+                window.open('https://bsky.app/intent/compose?text=' + encodeURIComponent(document.title + ' ' + location.href));
+            }
         }
     };
 

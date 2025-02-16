@@ -322,3 +322,16 @@ code {
     border-radius: 3px;
   }
   
+/* Custom Bluesky icon */
+.custom-bluesky {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: currentColor;
+    -webkit-mask: url('bluesky.svg') no-repeat 50% 50%;
+    mask: url('bluesky.svg') no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    vertical-align: middle;
+}
+  
