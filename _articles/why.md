@@ -3,7 +3,7 @@ title: "Why Jekyll with GitBook"
 order: 5  # Making it the first page
 author: Tao He
 date: 2019-04-27
-category: Test 
+category: advanced 
 layout: post
 ---
 

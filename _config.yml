@@ -82,5 +82,5 @@ categories_order:
     id: introduction
   - name: "Jekyll"
     id: jekyll
-  - name: "Advanced"
+  - name: "Advanced Title Test"
     id: advanced
