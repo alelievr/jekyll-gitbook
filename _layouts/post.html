@@ -33,7 +33,12 @@
                 </div>
 
                 <div class="body-inner">
-                    {%- include body.html -%}
+                    <div class="page-wrapper">
+                        <div class="page-inner">
+                            {%- include body.html -%}
+                        </div>
+                        {% include footer-content.html %}
+                    </div>
 
                     {% if page.previous %}
                         <a href="{{site.baseurl}}{{page.previous.url}}" class="navigation navigation-prev navigation-unique" aria-label="Previous page: {{page.previous.title}}">

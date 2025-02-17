@@ -92,8 +92,11 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 			}
 			event.stopPropagation();
 			event.preventDefault();
-			$summary.outerWidth(event.pageX + grabPointWidth);
-			$bookBody.offset({ left: event.pageX + grabPointWidth });
+			var width = event.pageX + grabPointWidth;
+			$summary.outerWidth(width);
+			$bookBody.offset({ left: width });
+			// Update footer position
+			$('.page-footer').css('left', width + 'px');
 		});
 
 		function getSplitState() {
@@ -117,6 +120,8 @@ require(['gitbook', 'jQuery'], function (gitbook, $) {
 			$summary.outerWidth(summaryWidth);
 			$summary.offset({ left: summaryOffset });
 			$bookBody.offset({ left: bookBodyOffset });
+			// Update footer position
+			$('.page-footer').css('left', summaryWidth + 'px');
 			// improved broken layout in windows chrome.
 			//   "$(x).offset" automatically add to "position:relative".
 			//   but it cause layout broken..

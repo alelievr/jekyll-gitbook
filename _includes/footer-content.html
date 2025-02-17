@@ -1,0 +1,31 @@
+<div class="page-footer">
+    {% if page.footer %}
+        {% if page.footer.copyright %}
+            <div class="footer-copyright">{{ page.footer.copyright }}</div>
+        {% endif %}
+        {% if page.footer.links %}
+            <div class="footer-links">
+                {% for link in page.footer.links %}
+                    <a href="{{ link.url | relative_url }}" class="footer-link">
+                        {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+                        {{ link.text }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% else %}
+        {% if site.footer.copyright %}
+            <div class="footer-copyright">{{ site.footer.copyright }}</div>
+        {% endif %}
+        {% if site.footer.links %}
+            <div class="footer-links">
+                {% for link in site.footer.links %}
+                    <a href="{{ link.url | relative_url }}" class="footer-link">
+                        {% if link.icon %}<i class="{{ link.icon }}"></i>{% endif %}
+                        {{ link.text }}
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endif %}
+</div> 

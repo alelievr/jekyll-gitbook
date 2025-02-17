@@ -78,9 +78,22 @@ defaults:
 
 # Categories configuration
 categories_order:
+  - name: "Advanced Title Test"
+    id: advanced
   - name: "Introduction"
     id: introduction
   - name: "Jekyll"
-    id: jekyll
-  - name: "Advanced Title Test"
-    id: advanced
+    id: Jekyll
+
+# Add footer configuration
+footer:
+  copyright: "Copyright © 2024 HE Tao"  # Default copyright notice
+  links:
+    - text: "GitHub"
+      url: "https://github.com/sighingnow/jekyll-gitbook"
+      icon: "fa fa-github"
+    - text: "License"
+      url: "/license"
+      icon: "fa fa-file-text-o"
+  # Allow per-page footer override
+  allow_override: true

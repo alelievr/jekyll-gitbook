@@ -2,7 +2,8 @@
 ---
 
 .book-body {
-    overflow-y: scroll;
+    position: relative;
+    min-height: 100vh;
 }
 
 .book-body .book-header {
@@ -16,9 +17,9 @@
 }
 
 .book-body .body-inner {
-    /* position: absolute; */
-    margin-top: 50px;
-    min-height: calc(100% - 50px);
+    position: relative;
+    min-height: calc(100vh - 50px);
+    margin-bottom: 100px; /* Space for footer */
 }
 
 @media (max-width: 1240px) {
@@ -355,5 +356,78 @@ code {
 
 .articles .chapter a {
     font-size: 13px;
+}
+
+/* Footer styling */
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    padding: 20px 40px;
+    font-size: 0.9em;
+    background: rgba(0, 0, 0, 0.02);
+    z-index: 2; /* Above navigation arrows */
+}
+
+/* Adjust footer position based on TOC */
+.book.with-summary .page-footer {
+    left: var(--divider-pos, 300px);
+    transition: left 0s;  /* Remove transition to follow handle exactly */
+}
+
+.book:not(.with-summary) .page-footer {
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .page-footer {
+        left: 0 !important;
+    }
+}
+
+/* Navigation arrows */
+.navigation {
+    z-index: 1;
+    margin-bottom: 100px; /* Space for footer */
+}
+
+/* Footer content styling */
+.footer-copyright {
+    color: #808080;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link {
+    color: var(--theme-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-link i {
+    margin-right: 6px;
+    font-size: 1.1em;
+}
+
+/* Dark theme adjustments */
+.book.color-theme-2 .page-footer {
+    border-top-color: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.book.color-theme-2 .footer-copyright {
+    color: #999;
 }
   
