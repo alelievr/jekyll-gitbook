@@ -62,7 +62,7 @@
                         {% assign cat_index = 0 %}
                         {% comment %} Loop through categories in the defined order {% endcomment %}
                         {% for category_config in site.categories_order %}
-                            {% assign category_posts = reversed_posts | where: "category", category_config.id %}
+                            {% assign category_posts = reversed_posts | where: "category", category_config.id | sort: "order" %}
                             {% if category_posts.size > 0 %}
                                 {% assign cat_index = cat_index | plus: 1 %}
                                 <li class="chapter">
@@ -96,7 +96,7 @@
 
                         {% comment %} Display uncategorized articles {% endcomment %}
                         {% assign uncategorized = reversed_posts | where: "category", nil %}
-                        {% assign uncategorized = uncategorized | concat: reversed_posts | where: "category", "" %}
+                        {% assign uncategorized = uncategorized | concat: reversed_posts | where: "category", "" | sort: "order" %}
                         {% if uncategorized.size > 0 %}
                             {% assign cat_index = cat_index | plus: 1 %}
                             <li class="chapter">
@@ -138,7 +138,7 @@
                         {% assign cat_index = 0 %}
                         {% comment %} Loop through categories in the defined order {% endcomment %}
                         {% for category_config in site.categories_order %}
-                            {% assign category_posts = reversed_posts | where: "category", category_config.id %}
+                            {% assign category_posts = reversed_posts | where: "category", category_config.id | sort: "order" %}
                             {% if category_posts.size > 0 %}
                                 {% assign cat_index = cat_index | plus: 1 %}
                                 <li class="chapter">
@@ -172,7 +172,7 @@
 
                         {% comment %} Display uncategorized articles {% endcomment %}
                         {% assign uncategorized = reversed_posts | where: "category", nil %}
-                        {% assign uncategorized = uncategorized | concat: reversed_posts | where: "category", "" %}
+                        {% assign uncategorized = uncategorized | concat: reversed_posts | where: "category", "" | sort: "order" %}
                         {% if uncategorized.size > 0 %}
                             {% assign cat_index = cat_index | plus: 1 %}
                             <li class="chapter">
