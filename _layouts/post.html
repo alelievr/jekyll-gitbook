@@ -7,6 +7,7 @@
         {% comment %} Sort all articles by category and order {% endcomment %}
         {% assign sorted_articles = site.articles | sort: "order" %}
         {% assign current_index = 0 %}
+        {% assign total_articles = sorted_articles.size | minus: 1 %}
         
         {% comment %} Find current article index {% endcomment %}
         {% for article in sorted_articles %}
@@ -25,7 +26,7 @@
             <link rel="prev" href="{{site.baseurl}}/" />
         {% endif %}
 
-        {% if current_index < sorted_articles.size | minus: 1 %}
+        {% if current_index < total_articles %}
             {% assign next_index = current_index | plus: 1 %}
             {% assign next_article = sorted_articles[next_index] %}
             <link rel="next" href="{{site.baseurl}}{{next_article.url}}" />
@@ -66,7 +67,7 @@
                         </a>
                     {% endif %}
 
-                    {% if current_index < sorted_articles.size | minus: 1 %}
+                    {% if current_index < total_articles %}
                         <a href="{{site.baseurl}}{{next_article.url}}" class="navigation navigation-next navigation-unique" aria-label="Next page: {{next_article.title}}">
                             <i class="fa fa-angle-right"></i>
                         </a>
