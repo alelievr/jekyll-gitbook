@@ -25,13 +25,14 @@
         {% comment %} Get previous and next articles {% endcomment %}
         {% assign prev_article = nil %}
         {% assign next_article = nil %}
+        {% assign last_index = all_articles.size | minus: 1 %}
         
         {% if article_index > 0 %}
             {% assign prev_index = article_index | minus: 1 %}
             {% assign prev_article = all_articles[prev_index] %}
         {% endif %}
         
-        {% if article_index < all_articles.size | minus: 1 %}
+        {% if article_index < last_index %}
             {% assign next_index = article_index | plus: 1 %}
             {% assign next_article = all_articles[next_index] %}
         {% endif %}
