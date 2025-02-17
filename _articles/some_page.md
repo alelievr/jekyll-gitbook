@@ -1,6 +1,6 @@
 ---
 title: "Some Page"
-order: 25
+order: 2 
 author: Tao He
 date: 2023-10-14
 category: Jekyll

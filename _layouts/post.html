@@ -4,31 +4,45 @@
 
         {%- include head.html -%}
 
-        {% comment %} Sort all articles by category and order {% endcomment %}
-        {% assign sorted_articles = site.articles | sort: "order" %}
-        {% assign current_index = 0 %}
-        {% assign total_articles = sorted_articles.size | minus: 1 %}
+        {% comment %} Create ordered list of all articles by category and order {% endcomment %}
+        {% assign ordered_categories = site.categories_order | map: "id" %}
+        {% assign all_articles = "" | split: "" %}
+        
+        {% for category in ordered_categories %}
+            {% assign category_articles = site.articles | where: "category", category | sort: "order" %}
+            {% assign all_articles = all_articles | concat: category_articles %}
+        {% endfor %}
         
         {% comment %} Find current article index {% endcomment %}
-        {% for article in sorted_articles %}
+        {% assign article_index = -1 %}
+        {% for article in all_articles %}
             {% if article.url == page.url %}
-                {% assign current_index = forloop.index0 %}
+                {% assign article_index = forloop.index0 %}
                 {% break %}
             {% endif %}
         {% endfor %}
 
         {% comment %} Get previous and next articles {% endcomment %}
-        {% if current_index > 0 %}
-            {% assign prev_index = current_index | minus: 1 %}
-            {% assign prev_article = sorted_articles[prev_index] %}
+        {% assign prev_article = nil %}
+        {% assign next_article = nil %}
+        
+        {% if article_index > 0 %}
+            {% assign prev_index = article_index | minus: 1 %}
+            {% assign prev_article = all_articles[prev_index] %}
+        {% endif %}
+        
+        {% if article_index < all_articles.size | minus: 1 %}
+            {% assign next_index = article_index | plus: 1 %}
+            {% assign next_article = all_articles[next_index] %}
+        {% endif %}
+
+        {% if prev_article %}
             <link rel="prev" href="{{site.baseurl}}{{prev_article.url}}" />
         {% else %}
             <link rel="prev" href="{{site.baseurl}}/" />
         {% endif %}
 
-        {% if current_index < total_articles %}
-            {% assign next_index = current_index | plus: 1 %}
-            {% assign next_article = sorted_articles[next_index] %}
+        {% if next_article %}
             <link rel="next" href="{{site.baseurl}}{{next_article.url}}" />
         {% endif %}
     </head>
@@ -57,7 +71,7 @@
                         </div>
                     </div>
 
-                    {% if current_index > 0 %}
+                    {% if prev_article %}
                         <a href="{{site.baseurl}}{{prev_article.url}}" class="navigation navigation-prev navigation-unique" aria-label="Previous page: {{prev_article.title}}">
                             <i class="fa fa-angle-left"></i>
                         </a>
@@ -67,7 +81,7 @@
                         </a>
                     {% endif %}
 
-                    {% if current_index < total_articles %}
+                    {% if next_article %}
                         <a href="{{site.baseurl}}{{next_article.url}}" class="navigation navigation-next navigation-unique" aria-label="Next page: {{next_article.title}}">
                             <i class="fa fa-angle-right"></i>
                         </a>

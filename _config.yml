@@ -84,6 +84,10 @@ categories_order:
     id: introduction
   - name: "Jekyll"
     id: Jekyll
+  - name: "Jekyll2"
+    id: Jekyll2
+  - name: "Jekyll3"
+    id: Jekyll3
 
 # Add footer configuration
 footer:

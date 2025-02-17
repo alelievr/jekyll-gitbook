@@ -1,9 +1,9 @@
 ---
 title: "How To"
-order: 50
+order: 1
 author: Tao He
 date: 2019-04-28
-category: Jekyll
+category: Jekyll2
 layout: post
 ---
 

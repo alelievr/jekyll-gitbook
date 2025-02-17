@@ -1,9 +1,9 @@
 ---
 title: "License"
-order: 40
+order: 2
 author: Tao He
 date: 2019-04-29
-category: Jekyll
+category: Jekyll2
 layout: post
 ---
 

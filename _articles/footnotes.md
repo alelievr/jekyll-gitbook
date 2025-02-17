@@ -1,9 +1,9 @@
 ---
 title: "Footnotes"
-order: 80
+order: 0
 author: Tao He
 date: 2022-06-25
-category: Jekyll
+category: Jekyll2
 layout: post
 mermaid: true
 ---

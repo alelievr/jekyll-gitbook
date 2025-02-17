@@ -1,7 +1,7 @@
 ---
 title: MathJax and LaTeX
 author: Tao He
-order: 25
+order: 0 
 date: 2023-10-14
 category: Jekyll
 layout: post

@@ -1,9 +1,9 @@
 ---
 title: "Wide Tables"
-order: 20
+order: 2
 author: Tao He
 date: 2022-06-26
-category: Jekyll
+category: Jekyll3
 layout: post
 ---
 
