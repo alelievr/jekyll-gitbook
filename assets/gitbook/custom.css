@@ -78,25 +78,35 @@
 
 /* scrollbar */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track-piece {
-    /* background-color: rgba(125, 125, 125, 0.2); */
+    background-color: transparent;
     -webkit-border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-    height: 5px;
-    background-color: rgba(7, 17, 27, .2);
+    height: 6px;
+    background-color: rgba(125, 125, 125, 0.4);
     -webkit-border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-    width: 5px;
-    background-color: rgba(125, 125, 125, 0.2);
+    width: 6px;
+    background-color: rgba(125, 125, 125, 0.4);
     -webkit-border-radius: 6px;
+}
+
+/* Dark theme scrollbar */
+.book.color-theme-2 ::-webkit-scrollbar-thumb:vertical,
+.book.color-theme-2 ::-webkit-scrollbar-thumb:horizontal {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.book.color-theme-2 ::-webkit-scrollbar-track-piece {
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 /* Style for search page on mobile screens */
