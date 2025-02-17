@@ -59,41 +59,37 @@
                             {% assign reversed_posts = site[collection.label] %}
                         {% endif %}
 
-                        {% assign categories = reversed_posts | map: "category" | uniq | sort %}
                         {% assign cat_index = 0 %}
-                        {% for category in categories %}
-                            {% if category != nil and category != empty and category != "" %}
+                        {% comment %} Loop through categories in the defined order {% endcomment %}
+                        {% for category_config in site.categories_order %}
+                            {% assign category_posts = reversed_posts | where: "category", category_config.id %}
+                            {% if category_posts.size > 0 %}
                                 {% assign cat_index = cat_index | plus: 1 %}
-                                {% assign category_config = site.categories_order | where: "id", category | first %}
-                                {% assign category_name = category_config.name | default: category | capitalize %}
-                                {% assign category_posts = reversed_posts | where: "category", category %}
-                                {% if category_posts.size > 0 %}
-                                    <li class="chapter">
-                                        <span class="category-title">{{cat_index}} - {{category_name}}</span>
-                                        <ul class="articles">
-                                            {% assign article_index = 0 %}
-                                            {% for post in category_posts %}
-                                                {% unless post.hidden %}
-                                                    {% assign article_index = article_index | plus: 1 %}
-                                                    {% if page.url == post.url %}
-                                                        <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
-                                                    {% else %}
-                                                        <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                <li class="chapter">
+                                    <span class="category-title">{{cat_index}} - {{category_config.name}}</span>
+                                    <ul class="articles">
+                                        {% assign article_index = 0 %}
+                                        {% for post in category_posts %}
+                                            {% unless post.hidden %}
+                                                {% assign article_index = article_index | plus: 1 %}
+                                                {% if page.url == post.url %}
+                                                    <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
+                                                {% else %}
+                                                    <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                                {% endif %}
+                                                    <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
+                                                        {{cat_index}}.{{article_index}} - {{ post.title | escape }}
+                                                    </a>
+                                                    {% if site.toc.enabled and page.url == post.url %}
+                                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
                                                     {% endif %}
-                                                        <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
-                                                            {{cat_index}}.{{article_index}} - {{ post.title | escape }}
-                                                        </a>
-                                                        {% if site.toc.enabled and page.url == post.url %}
-                                                            {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
-                                                        {% endif %}
-                                                    </li>
-                                                {% endunless %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                    {% if forloop.last != true %}
-                                        <li class="divider"></li>
-                                    {% endif %}
+                                                </li>
+                                            {% endunless %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% if forloop.last != true %}
+                                    <li class="divider"></li>
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
@@ -139,41 +135,37 @@
                             {% assign reversed_posts = site[collection.label] %}
                         {% endif %}
 
-                        {% assign categories = reversed_posts | map: "category" | uniq | sort %}
                         {% assign cat_index = 0 %}
-                        {% for category in categories %}
-                            {% if category != nil and category != empty and category != "" %}
+                        {% comment %} Loop through categories in the defined order {% endcomment %}
+                        {% for category_config in site.categories_order %}
+                            {% assign category_posts = reversed_posts | where: "category", category_config.id %}
+                            {% if category_posts.size > 0 %}
                                 {% assign cat_index = cat_index | plus: 1 %}
-                                {% assign category_config = site.categories_order | where: "id", category | first %}
-                                {% assign category_name = category_config.name | default: category | capitalize %}
-                                {% assign category_posts = reversed_posts | where: "category", category %}
-                                {% if category_posts.size > 0 %}
-                                    <li class="chapter">
-                                        <span class="category-title">{{cat_index}} - {{category_name}}</span>
-                                        <ul class="articles">
-                                            {% assign article_index = 0 %}
-                                            {% for post in category_posts %}
-                                                {% unless post.hidden %}
-                                                    {% assign article_index = article_index | plus: 1 %}
-                                                    {% if page.url == post.url %}
-                                                        <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
-                                                    {% else %}
-                                                        <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                <li class="chapter">
+                                    <span class="category-title">{{cat_index}} - {{category_config.name}}</span>
+                                    <ul class="articles">
+                                        {% assign article_index = 0 %}
+                                        {% for post in category_posts %}
+                                            {% unless post.hidden %}
+                                                {% assign article_index = article_index | plus: 1 %}
+                                                {% if page.url == post.url %}
+                                                    <li class="chapter active" data-level="{{cat_index}}.{{article_index}}">
+                                                {% else %}
+                                                    <li class="chapter" data-level="{{cat_index}}.{{article_index}}">
+                                                {% endif %}
+                                                    <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
+                                                        {{cat_index}}.{{article_index}} - {{ post.title | escape }}
+                                                    </a>
+                                                    {% if site.toc.enabled and page.url == post.url %}
+                                                        {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
                                                     {% endif %}
-                                                        <a href="{{site.baseurl}}{{post.url}}" onclick="pageScrollToTop(this)">
-                                                            {{cat_index}}.{{article_index}} - {{ post.title | escape }}
-                                                        </a>
-                                                        {% if site.toc.enabled and page.url == post.url %}
-                                                            {% include toc.html html=content h_min=site.toc.h_min h_max=site.toc.h_max %}
-                                                        {% endif %}
-                                                    </li>
-                                                {% endunless %}
-                                            {% endfor %}
-                                        </ul>
-                                    </li>
-                                    {% if forloop.last != true %}
-                                        <li class="divider"></li>
-                                    {% endif %}
+                                                </li>
+                                            {% endunless %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                {% if forloop.last != true %}
+                                    <li class="divider"></li>
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
