@@ -37,7 +37,6 @@
                         <div class="page-inner">
                             {%- include body.html -%}
                         </div>
-                        {% include footer-content.html %}
                     </div>
 
                     {% if page.previous %}
@@ -56,6 +55,7 @@
                         </a>
                     {% endif %}
                 </div>
+                {% include footer-content.html %}
             </div>
 
             <script>

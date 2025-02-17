@@ -19,7 +19,8 @@
 .book-body .body-inner {
     position: relative;
     min-height: calc(100vh - 50px);
-    margin-bottom: 100px; /* Space for footer */
+    display: flex;
+    flex-direction: column;
 }
 
 @media (max-width: 1240px) {
@@ -31,7 +32,9 @@
 }
 
 .book-body .body-inner .page-wrapper {
-    min-height: calc(100% - 46px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-body .body-inner .page-wrapper .page-inner {
@@ -63,7 +66,10 @@
 }
 
 .page-inner {
-    max-width: {{ site.page_width | default: '800px' }};
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 40px;
 }
 
 .back-to-top {
@@ -360,46 +366,24 @@ code {
 
 /* Footer styling */
 .page-footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
+    width: 100%;
     border-top: 1px solid rgba(0, 0, 0, 0.07);
     padding: 20px 40px;
     font-size: 0.9em;
     background: rgba(0, 0, 0, 0.02);
-    z-index: 2; /* Above navigation arrows */
+    box-sizing: border-box;
 }
 
-/* Adjust footer position based on TOC */
-.book.with-summary .page-footer {
-    left: var(--divider-pos, 300px);
-    transition: left 0s;  /* Remove transition to follow handle exactly */
-}
-
-.book:not(.with-summary) .page-footer {
-    left: 0;
-}
-
-@media (max-width: 600px) {
-    .page-footer {
-        left: 0 !important;
-    }
-}
-
-/* Navigation arrows */
-.navigation {
-    z-index: 1;
-    margin-bottom: 100px; /* Space for footer */
-}
-
-/* Footer content styling */
 .footer-copyright {
+    max-width: 800px;
+    margin: 0 auto 12px;
     color: #808080;
-    margin-bottom: 12px;
     font-weight: 500;
 }
 
 .footer-links {
+    max-width: 800px;
+    margin: 0 auto;
     display: flex;
     gap: 20px;
 }
@@ -429,5 +413,44 @@ code {
 
 .book.color-theme-2 .footer-copyright {
     color: #999;
+}
+
+@media (max-width: 600px) {
+    .page-inner,
+    .page-footer {
+        padding: 20px;
+    }
+}
+
+/* Navigation arrows */
+.navigation {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 35px;
+    height: 35px;
+    padding: 10px;
+    text-align: center;
+    transition: none;
+}
+
+.navigation.navigation-prev {
+    left: var(--divider-pos, 300px);
+    transition: none;
+}
+
+.book:not(.with-summary) .navigation.navigation-prev {
+    left: 0;
+}
+
+.navigation.navigation-next {
+    right: 0;
+}
+
+@media (max-width: 600px) {
+    .navigation.navigation-prev {
+        left: 0 !important;
+    }
 }
   
