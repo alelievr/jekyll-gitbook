@@ -4,10 +4,6 @@ function initTOCHighlight() {
     const tocLinks = document.querySelectorAll('.chapter a');
     let lastActiveLink = null;
 
-    // Debug log to check headers and links
-    console.log('Headers:', Array.from(headers).map(h => h.textContent.trim()));
-    console.log('TOC links:', Array.from(tocLinks).map(l => l.textContent.trim()));
-
     // Create a map of header text to TOC links that handles nested headers
     const headerToLinkMap = new Map();
     headers.forEach(header => {
@@ -19,12 +15,8 @@ function initTOCHighlight() {
             return headerText === linkText;
         });
 
-        if (matchingLink) {
-            console.log('Mapped:', headerText, 'to:', matchingLink.textContent.trim());
+        if (matchingLink)
             headerToLinkMap.set(header, matchingLink);
-        } else {
-            console.log('No match found for header:', headerText);
-        }
     });
 
     // Function to expand a chapter in the TOC

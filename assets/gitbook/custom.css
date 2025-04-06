@@ -61,6 +61,12 @@
     }
 }
 
+/* Make header title always visible */
+#book-header-title {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
 .book .book-body .book-header {
     background: #ffffff;
 }
