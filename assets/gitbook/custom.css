@@ -474,4 +474,21 @@ code {
         max-width: calc(100% - 80px);
     }
 }
+
+/* TOC active item styling - working with GitBook's styles */
+.book-summary .chapter.active > a,
+.book-summary .chapter.selected > a {
+    color: var(--theme-color, #008cff) !important;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.book.color-theme-1 .book-summary .chapter.active > a,
+.book.color-theme-1 .book-summary .chapter.selected > a {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.book.color-theme-2 .book-summary .chapter.active > a,
+.book.color-theme-2 .book-summary .chapter.selected > a {
+    background-color: rgba(255, 255, 255, 0.05);
+}
   
