@@ -412,7 +412,7 @@ code {
 }
 
 .footer-link {
-    color: var(--theme-color);
+    color: #704214;
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -436,6 +436,10 @@ code {
 
 .book.color-theme-2 .footer-copyright {
     color: #999;
+}
+
+.book.color-theme-2 .footer-link {
+    color: #3eb1d0;
 }
 
 @media (max-width: 600px) {
