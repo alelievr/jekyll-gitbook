@@ -4,6 +4,8 @@
 
         {%- include head.html -%}
 
+        <link rel="shortcut icon" href="{{site.favicon_path}}" type="image/x-icon">
+
         {% comment %} Create ordered list of all articles by category and order {% endcomment %}
         {% assign ordered_categories = site.categories_order | map: "id" %}
         {% assign all_articles = "" | split: "" %}
