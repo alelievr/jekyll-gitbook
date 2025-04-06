@@ -9,6 +9,8 @@
 .book-body .book-header {
     position: fixed;
     width: 100%;
+    z-index: 2;
+    background-color: var(--body-background);
 }
 
 .book.with-summary .book-body .book-header {
@@ -17,10 +19,12 @@
 }
 
 .book-body .body-inner {
-    position: relative;
-    min-height: calc(100vh - 50px);
-    display: flex;
-    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
 }
 
 @media (max-width: 1240px) {
